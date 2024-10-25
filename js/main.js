@@ -64,8 +64,21 @@ function generateTeamsArray(tot) {
   for (let i = 0; i < tot; i++) {
     teamsArray[i] = generateTeam();
   }
+
+  const teamNames = ["Milan", "Inter", "Juventus", "Napoli", "Roma"];
+
+  for (i = 0; i < teamsArray.length; i++) {
+    const currentTeam = teamsArray[i];
+    currentTeam.name = teamNames[i];
+    currentTeam.score = generateRandomNumber(1, 10);
+    currentTeam.fouls = generateRandomNumber(1, 10);
+  }
+
   return teamsArray;
 }
+
+const generateRandomNumber = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
 
 const numberOfTeams = 5;
 const teamsArray = generateTeamsArray(numberOfTeams);
