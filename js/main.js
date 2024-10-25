@@ -31,15 +31,17 @@ const bike4 = {
     unit: "Kg",
   },
 };
-
-const bikePark = [bike1, bike2, bike3, bike4];
-
-let lightestBike = bikePark[0];
-for (const currentBike of bikePark) {
-  if (currentBike.weight.value < lightestBike.weight.value)
-    lightestBike = currentBike;
+function lightestBikeFinder(bikePark) {
+  let lightestBike = bikePark[0];
+  for (const currentBike of bikePark) {
+    if (currentBike.weight.value < lightestBike.weight.value)
+      lightestBike = currentBike;
+  }
+  return lightestBike;
 }
 
+const bikePark = [bike1, bike2, bike3, bike4];
+const lightestBike = lightestBikeFinder(bikePark);
 console.log(lightestBike);
 
 // ! Snack 2
