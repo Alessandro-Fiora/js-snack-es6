@@ -49,6 +49,9 @@
 // Generare numeri random al posto degli 0 nelle proprietà "punti" fatti e "falli subiti".
 // Infine, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 
+const generateRandomNumber = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
 function generateTeam() {
   const team = {
     name: "",
@@ -59,13 +62,23 @@ function generateTeam() {
   return team;
 }
 
-function generateTeamsArray(tot) {
+function generateTeams(tot) {
   const teamsArray = [];
   for (let i = 0; i < tot; i++) {
     teamsArray[i] = generateTeam();
   }
 
-  const teamNames = ["Milan", "Inter", "Juventus", "Napoli", "Roma"];
+  const teamNames = [
+    "Milan",
+    "Inter",
+    "Juventus",
+    "Napoli",
+    "Roma",
+    "Lazio",
+    "Fiorentina",
+    "Atalanta",
+    "Torino",
+  ];
 
   for (i = 0; i < teamsArray.length; i++) {
     const currentTeam = teamsArray[i];
@@ -77,13 +90,22 @@ function generateTeamsArray(tot) {
   return teamsArray;
 }
 
-const generateRandomNumber = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
+function reduceTeams(teams) {
+  const reducedTeams = [];
+
+  for (const currentTeam of teams) {
+    const { name, fouls } = currentTeam;
+    reducedTeams.push({ name, fouls });
+  }
+  return reducedTeams;
+}
 
 const numberOfTeams = 5;
-const teamsArray = generateTeamsArray(numberOfTeams);
+const teamsArray = generateTeams(numberOfTeams);
+const reducedTeamsArray = reduceTeams(teamsArray);
 
-console.log(teamsArray);
+console.log("Teams completi: ", teamsArray);
+console.log("Teams senza punti: ", reducedTeamsArray);
 
 // ! Snack 3 (Bonus)
 // Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
