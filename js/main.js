@@ -49,64 +49,83 @@
 // Generare numeri random al posto degli 0 nelle proprietà "punti" fatti e "falli subiti".
 // Infine, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 
-const generateRandomNumber = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
+// const generateRandomNumber = (min, max) =>
+//   Math.floor(Math.random() * (max - min + 1) + min);
 
-function generateTeam() {
-  const team = {
-    name: "",
-    score: 0,
-    fouls: 0,
-  };
+// function generateTeam() {
+//   const team = {
+//     name: "",
+//     score: 0,
+//     fouls: 0,
+//   };
 
-  return team;
-}
+//   return team;
+// }
 
-function generateTeams(tot) {
-  const teamsArray = [];
-  for (let i = 0; i < tot; i++) {
-    teamsArray[i] = generateTeam();
-  }
+// function generateTeams(tot) {
+//   const teamsArray = [];
+//   for (let i = 0; i < tot; i++) {
+//     teamsArray[i] = generateTeam();
+//   }
 
-  const teamNames = [
-    "Milan",
-    "Inter",
-    "Juventus",
-    "Napoli",
-    "Roma",
-    "Lazio",
-    "Fiorentina",
-    "Atalanta",
-    "Torino",
-  ];
+//   const teamNames = [
+//     "Milan",
+//     "Inter",
+//     "Juventus",
+//     "Napoli",
+//     "Roma",
+//     "Lazio",
+//     "Fiorentina",
+//     "Atalanta",
+//     "Torino",
+//   ];
 
-  for (i = 0; i < teamsArray.length; i++) {
-    const currentTeam = teamsArray[i];
-    currentTeam.name = teamNames[i];
-    currentTeam.score = generateRandomNumber(1, 10);
-    currentTeam.fouls = generateRandomNumber(1, 10);
-  }
+//   for (i = 0; i < teamsArray.length; i++) {
+//     const currentTeam = teamsArray[i];
+//     currentTeam.name = teamNames[i];
+//     currentTeam.score = generateRandomNumber(1, 10);
+//     currentTeam.fouls = generateRandomNumber(1, 10);
+//   }
 
-  return teamsArray;
-}
+//   return teamsArray;
+// }
 
-function reduceTeams(teams) {
-  const reducedTeams = [];
+// function reduceTeams(teams) {
+//   const reducedTeams = [];
 
-  for (const currentTeam of teams) {
-    const { name, fouls } = currentTeam;
-    reducedTeams.push({ name, fouls });
-  }
-  return reducedTeams;
-}
+//   for (const currentTeam of teams) {
+//     const { name, fouls } = currentTeam;
+//     reducedTeams.push({ name, fouls });
+//   }
+//   return reducedTeams;
+// }
 
-const numberOfTeams = 5;
-const teamsArray = generateTeams(numberOfTeams);
-const reducedTeamsArray = reduceTeams(teamsArray);
+// const numberOfTeams = 5;
+// const teamsArray = generateTeams(numberOfTeams);
+// const reducedTeamsArray = reduceTeams(teamsArray);
 
-console.log("Teams completi: ", teamsArray);
-console.log("Teams senza punti: ", reducedTeamsArray);
+// console.log("Teams completi: ", teamsArray);
+// console.log("Teams senza punti: ", reducedTeamsArray);
 
 // ! Snack 3 (Bonus)
 // Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
 // La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
+
+function valuesInBetween(array, min, max) {
+  const newArray = [];
+
+  array.forEach((curentEl, index) => {
+    if (index > min && index < max) {
+      newArray.push(curentEl);
+    }
+  });
+
+  return newArray;
+}
+
+const myArray = ["ciao", "hi", "hello", "goodbye"];
+const min = 0;
+const max = 3;
+
+const newArray = valuesInBetween(myArray, min, max);
+console.log(newArray);
