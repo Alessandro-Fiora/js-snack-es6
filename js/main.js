@@ -3,6 +3,45 @@
 // Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
 // Stampare a schermo la bici con peso minore.
 
+const bike1 = {
+  name: "Pininfarina",
+  weight: {
+    value: 7,
+    unit: "Kg",
+  },
+};
+const bike2 = {
+  name: "Rockrider",
+  weight: {
+    value: 6,
+    unit: "Kg",
+  },
+};
+const bike3 = {
+  name: "Bianchi",
+  weight: {
+    value: 5,
+    unit: "Kg",
+  },
+};
+const bike4 = {
+  name: "Graziella",
+  weight: {
+    value: 10,
+    unit: "Kg",
+  },
+};
+
+const bikePark = [bike1, bike2, bike3, bike4];
+
+let lightestBike = bikePark[0];
+for (const currentBike of bikePark) {
+  if (currentBike.weight.value < lightestBike.weight.value)
+    lightestBike = currentBike;
+}
+
+console.log(lightestBike);
+
 // ! Snack 2
 // Creare un array di oggetti di squadre di calcio.
 //  Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
